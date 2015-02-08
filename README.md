@@ -69,5 +69,5 @@ Host myvps
 
 ## TODO
 
-[ ] Allow multipart images in post
-[ ] Make weechat client more robust (away, current buffer, tmux awareness, etc)
+ - [ ] Allow multipart images in post
+ - [ ] Make weechat client more robust (away, current buffer, tmux awareness, etc)
