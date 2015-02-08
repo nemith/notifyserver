@@ -10,7 +10,7 @@ By default notifyserver listens on localhost:9999 and is intended to be used eit
 To install:
 
 ```
-go get github.com/nemith/notifyserver
+go get -u github.com/nemith/notifyserver
 go install github.com/nemith/notifyserver
 ```
 
