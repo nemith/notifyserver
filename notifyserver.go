@@ -26,19 +26,20 @@ var plistTmpl = template.Must(template.New("plist").Parse(`<?xml version="1.0" e
 	<dict>
 		<key>Label</key>
 		<string>com.github.nemith.notifyserver</string>
+		<key>Program</key>
+		<string>{{.Path}}</string>
 		<key>ProgramArguments</key>
 		<array>
 			<string>{{.Path}}</string>
 			<string>run</string>
 			{{if .HTTPAddr}}
-			<string>--http {{.HTTPAddr}}</string>
+			<string>--http</string>
+			<string>{{.HTTPAddr}}</string>
 			{{end}}
 		</array>
 		<key>RunAtLoad</key>
 		<true/>
 		<key>KeepAlive</key>
-		<true/>
-		<key>SuccessfulExit</key>
 		<true/>
 	</dict>
 </plist>
@@ -74,7 +75,7 @@ func installAction(c *cli.Context) {
 	}
 
 	jobPath := launchdJobPath()
-	f, err := os.OpenFile(jobPath, os.O_CREATE|os.O_WRONLY, 0644)
+	f, err := os.OpenFile(jobPath, os.O_CREATE|os.O_TRUNC|os.O_WRONLY, 0644)
 	if err != nil {
 		log.Fatal(err)
 	}
