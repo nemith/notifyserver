@@ -1,6 +1,8 @@
 #notifyserver
 notifyserver is a service for OS X that listens for inbound HTTP json requests and will create OS notification for those requests. This is useful to send http notifications back across a tunneled ssh session or from a remote host with no crazy rpcs.
 
+![Screenshot](https://raw.githubusercontent.com/nemith/notifyserver/_meta/ss1.png)
+
 By default notifyserver listens on localhost:9999 and is intended to be used either locally (which is just silly) or over a tunneled ssh session.
 
 ## Installation and running
