@@ -58,6 +58,9 @@ class Config(object):
     def __getitem__(self, key):
         return self._opts[key]
 
+def config_cb(data, option, value):
+    cfg.update()
+    return weechat.WEECHAT_RC_OK
 
 def send_notify(**kwargs):
     data = json.dumps(kwargs)
@@ -97,4 +100,5 @@ if __name__ == '__main__' and import_ok:
                         SCRIPT_LICENSE, SCRIPT_DESC, '', ''):
         cfg = Config()
         
+        weechat.hook_config("plugins.var.python." + SCRIPT_NAME + ".*", "config_cb", "")
         weechat.hook_print("", "", "", 1, "handle_msg", "")
