@@ -51,3 +51,23 @@ To send notification to the server POST a json file with the following options t
 ```
 curl -H "Content-Type: application/json" -d @notify.json http://localhost:9999/notify
 ```
+
+
+## Clients
+You can find sample notifyserver clients in the clients directory
+
+### Weechat 
+There is a sample weechat plugin that can be used in conjunction with a ssh remoteforward to send weechat highlight and private message notifications to your desktop
+
+Sample SSH config:
+```
+Host myvps
+	Hostname myvps.vpshost.com
+	RemoteForward 127.0.0.1:9999 127.0.0.1:9999
+```
+
+
+## TODO
+
+[ ] Allow multipart images in post
+[ ] Make weechat client more robust (away, current buffer, tmux awareness, etc)
